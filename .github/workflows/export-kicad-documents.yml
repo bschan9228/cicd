@@ -16,7 +16,7 @@ jobs:
           EXPORT_PATH="./outputs"
           mkdir -p $EXPORT_PATH
           KICAD_PROJECTS=$(find . -name *.kicad_pro)
-          PROJECT_PATH=${KICAD_PROJECT[0]%.kicad_pro}
+          PROJECT_PATH=${KICAD_PROJECTS[0]%.kicad_pro}
           SCHEMATIC_PATH="${PROJECT_PATH}.kicad_sch"
           PCB_PATH="${PROJECT_PATH}.kicad_pcb"
 

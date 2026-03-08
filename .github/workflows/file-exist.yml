@@ -1,0 +1,32 @@
+name: file-exist
+run-name: Checking if file exists
+on: [push]
+
+jobs:
+  find-file:
+    runs-on: ubuntu-latest
+    env:
+      FILE: .gitignore
+      bytes: 100
+    steps:
+      - name: Checking out repository
+        uses: actions/checkout@v6
+
+      - name: Finding file
+        run: |
+          if [ -f $FILE ]; then
+            echo "File exists!"
+          else
+            echo "File does not exist"
+            exit 1
+          fi
+
+      - name: Check if file is > N bytes
+        run: |
+          size=$(stat -c %s $FILE)
+          if [ $size -gt $N ]; then
+            echo "File is larger than ${N} bytes"
+          else
+            echo "File is smaller than ${N} bytes"
+            exit 1
+          fi
