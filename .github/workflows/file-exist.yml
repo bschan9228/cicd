@@ -24,9 +24,9 @@ jobs:
       - name: Check if file is > N bytes
         run: |
           size=$(stat -c %s $FILE)
-          if [ $size -gt $N ]; then
-            echo "File is larger than ${N} bytes"
+          if [ $size -gt $bytes ]; then
+            echo "File is larger than ${bytes} bytes"
           else
-            echo "File is smaller than ${N} bytes"
+            echo "File is smaller than ${bytes} bytes"
             exit 1
           fi
