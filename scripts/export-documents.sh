@@ -30,8 +30,8 @@ kicad-cli pcb export gerbers $PCB_PATH -o "${EXPORT_PATH}/gerbers" --board-plot-
 kicad-cli pcb export drill $PCB_PATH -o "${EXPORT_PATH}/gerbers" --excellon-separate-th
 
 # Positions for PnP production
-kicad-cli pcb export pos $PCB_PATH --format csv --side front -o "${EXPORT_PATH}/gerbers/top-pos.csv"
-kicad-cli pcb export pos $PCB_PATH --format csv --side back -o "${EXPORT_PATH}/gerbers/bottom-pos.csv"
+kicad-cli pcb export pos $PCB_PATH --format csv --units mm --side front -o "${EXPORT_PATH}/gerbers/top-pos.csv"
+kicad-cli pcb export pos $PCB_PATH --format csv --units mm --side back -o "${EXPORT_PATH}/gerbers/bottom-pos.csv"
 POSITION_CSV_COLUMNS="Designator,Value,Footprint,Mid X,Mid Y, Rotation,Layer"
 sed -i "1s/.*/$POSITION_CSV_COLUMNS/" "${EXPORT_PATH}/gerbers/top-pos.csv"
 sed -i "1s/.*/$POSITION_CSV_COLUMNS/" "${EXPORT_PATH}/gerbers/bottom-pos.csv"
