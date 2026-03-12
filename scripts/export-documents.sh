@@ -24,7 +24,7 @@ kicad-cli sch export svg $SCHEMATIC_PATH -o "$SVG_PATH"
 kicad-cli pcb export svg $PCB_PATH -o "${SVG_PATH}/pcb.svg" --mode-single -l $EXPORT_LAYERS # Can split to mutliple pages using --mode-multi
 
 # Production: BOM, gerbers, drill files
-kicad-cli sch export bom $SCHEMATIC_PATH -o "${EXPORT_PATH}/bom.csv" --group-by "Part Number,Reference,Value,\${DNP}" \
+kicad-cli sch export bom $SCHEMATIC_PATH -o "${EXPORT_PATH}/bom.csv" --group-by "Part Number,Reference,Value,Footprint,\${DNP}" \
 --ref-range-delimiter --fields "Reference,Value,Part Number,Footprint,\${DNP}"
 kicad-cli pcb export gerbers $PCB_PATH -o "${EXPORT_PATH}/gerbers" --board-plot-params
 kicad-cli pcb export drill $PCB_PATH -o "${EXPORT_PATH}/gerbers" --excellon-separate-th
